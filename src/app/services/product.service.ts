@@ -7,7 +7,8 @@ import { Product } from '../interfaces/product';
   providedIn: 'root',
 })
 export class ProductService {
-  BASE_URL = 'http://localhost:3000';
+  // BASE_URL = 'http://localhost:3000';
+  BASE_URL = 'https://jm-products-nestjs.herokuapp.com';
 
   constructor(private http: HttpClient) {}
 
@@ -24,7 +25,6 @@ export class ProductService {
   }
 
   deleteProduct(id: string): Observable<Product> {
-    console.log(id);
     return this.http.delete<Product>(
       `${this.BASE_URL}/product/delete?productID=${id}`
     );

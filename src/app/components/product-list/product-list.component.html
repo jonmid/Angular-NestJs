@@ -3,10 +3,12 @@
     <div class="col-md-8">
       <ul>
         <li>id: {{ product._id }}</li>
-        <li>name: {{ product.name }}</li>
+        <li>
+          name: <b>{{ product.name | uppercase }}</b>
+        </li>
         <li>description: {{ product.description }}</li>
-        <li>price: {{ product.price }}</li>
-        <li>createdAt: {{ product.createdAt }}</li>
+        <li>price: {{ product.price | currency }}</li>
+        <li>createdAt: {{ product.createdAt | date: 'medium' }}</li>
       </ul>
       <button (click)="deleteProduct(product._id)" class="btn btn-danger">
         Delete
